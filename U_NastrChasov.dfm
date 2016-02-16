@@ -1,13 +1,13 @@
 object F_NastrChasov: TF_NastrChasov
-  Left = 1447
-  Top = 149
+  Left = 1593
+  Top = 127
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1095#1072#1089#1086#1074
   ClientHeight = 566
   ClientWidth = 307
   Color = clBtnFace
-  Constraints.MaxHeight = 600
+  Constraints.MaxHeight = 604
   Constraints.MaxWidth = 331
   Constraints.MinHeight = 545
   Constraints.MinWidth = 315
