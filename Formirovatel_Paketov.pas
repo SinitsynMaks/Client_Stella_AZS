@@ -699,11 +699,11 @@ end;
 procedure TPaketovshik.ZapisCenyNaOdnomUstr(adr: integer; cena: string);
 var
   k,x:integer;
-  s1: string;
+  s,s1: string;
 begin
+  F_Main.Memo1.Lines.Clear;
   s1:='';
   x:=1;
- // s:= TF_Nastr_Ceny(MyForms[number_str]).Edit_Cena.Text;
   Paketik[1]:= adr;
   Paketik[8]:=0; //Первоначальное смещение точки
   If (Pos('.',cena)>0) or (Pos(',',cena)>0)
@@ -744,8 +744,14 @@ begin
   Paketik[14]:=$0D;
   Paketik[15]:=$0A;
   F_Main.ComPort1.Write(Paketik,15);
-  Sleep(50);
+  s:='';
+  For k:=1 to 15 do s:= s + IntToHex(Paketik[k],2)+ ' ';
+  F_Main.Memo1.Lines.Add(s);
+  Sleep(100);
   F_Main.ComPort1.Read(P_vhod,15);
+  s:='';
+  For k:=1 to 15 do  s:= s + IntToHex(P_vhod[k],2) + ' ';
+  F_Main.Memo1.Lines.Add(s);
   If (P_vhod[9]=Paketik[1]) and (P_vhod[10]=2) and (P_vhod[11]=1) and (P_vhod[12]=255)
     then
       begin

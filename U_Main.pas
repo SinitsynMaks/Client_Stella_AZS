@@ -40,6 +40,7 @@ type
     Timer2: TTimer;
     Btn1_ZapVremsPK: TSpeedButton;
     ComPort1: TComPort;
+    Memo1: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure Action_PortOptionsExecute(Sender: TObject);
     procedure Action_OProgrammeExecute(Sender: TObject);

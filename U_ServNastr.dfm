@@ -1,6 +1,6 @@
 object F_ServNastr: TF_ServNastr
-  Left = 1487
-  Top = 127
+  Left = 1104
+  Top = 140
   Width = 417
   Height = 647
   Caption = #1057#1077#1088#1074#1080#1089#1085#1099#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1080
@@ -96,7 +96,7 @@ object F_ServNastr: TF_ServNastr
       ParentFont = False
       TabOrder = 1
       object cxGrid1TableView1: TcxGridTableView
-        Navigator.Buttons.CustomButtons = <>
+        NavigatorButtons.ConfirmDelete = False
         OnCellDblClick = cxGrid1TableView1CellDblClick
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
@@ -198,7 +198,7 @@ object F_ServNastr: TF_ServNastr
       ParentFont = False
       TabOrder = 0
       object cxGrid2TableView1: TcxGridTableView
-        Navigator.Buttons.CustomButtons = <>
+        NavigatorButtons.ConfirmDelete = False
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>

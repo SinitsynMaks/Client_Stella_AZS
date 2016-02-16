@@ -219,7 +219,7 @@ object F_NastrChasov: TF_NastrChasov
       Constraints.MaxHeight = 220
       TabOrder = 1
       object cxG_FlagsTV1: TcxGridTableView
-        Navigator.Buttons.CustomButtons = <>
+        NavigatorButtons.ConfirmDelete = False
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>

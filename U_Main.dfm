@@ -1,6 +1,6 @@
 object F_Main: TF_Main
-  Left = 1565
-  Top = 271
+  Left = 1240
+  Top = 113
   Anchors = [akTop, akBottom]
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -108,7 +108,7 @@ object F_Main: TF_Main
     Left = 8
     Top = 202
     Width = 305
-    Height = 351
+    Height = 244
     Hint = 
       #1054#1073#1083#1072#1089#1090#1100', '#1074' '#1082#1086#1090#1086#1088#1086#1081' '#1076#1086#1083#1078#1085#1099' '#1086#1090#1086#1073#1088#1072#1078#1072#1090#1100#1089#1103#13#10#1094#1077#1085#1099' '#1089' '#1091#1089#1090#1088#1086#1081#1089#1090#1074' '#1087#1086#1089#1083#1077' '#1085 +
       #1072#1078#1072#1090#1080#1103' '#1082#1085#1086#1087#1082#1080' "'#1057#1095#1080#1090#1072#1090#1100'".'
@@ -166,6 +166,13 @@ object F_Main: TF_Main
     TabOrder = 3
     WordWrap = True
     OnClick = Btn_ZapNaStellyClick
+  end
+  object Memo1: TMemo
+    Left = 9
+    Top = 460
+    Width = 303
+    Height = 94
+    TabOrder = 4
   end
   object ActionList1: TActionList
     Left = 216
