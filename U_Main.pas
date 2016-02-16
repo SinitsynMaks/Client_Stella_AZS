@@ -254,11 +254,9 @@ begin
 end;
 
 procedure TF_Main.ChangeOfEdit(Sender: TObject);
-var
-  s: string;
 begin
-  s:= (Sender as TEdit).Text;
-  If (Pos('.',s)>0) or (Pos(',',s)>0)
+  //ShowMessage((Sender as TEdit).Text);
+  If (Pos('.',(Sender as TEdit).Text)>0) or (Pos(',',(Sender as TEdit).Text)>0)
     then
       begin
         (Sender as TEdit).MaxLength:=razr+1;
@@ -271,16 +269,19 @@ begin
       end;
   If AdresaIzmYstr = nil
     then AdresaIzmYstr:= TStringList.Create;
-  If AdresaIzmYstr.IndexOfName(IntToStr((Sender as TEdit).Tag)) >0 //Если там имеется уже измененное значение...
+  If AdresaIzmYstr.IndexOfName(IntToStr((Sender as TEdit).Tag)) >= 0 //Если там имеется уже измененное значение...
     then
       begin
-        ShowMessage('Сейчас в стринглисте строк: '+ IntToStr(AdresaIzmYstr.Count)+#10+#13+
-                    'Изменения коснулись строки: '+ IntToStr(AdresaIzmYstr.IndexOfName(IntToStr((Sender as TEdit).Tag))));
         AdresaIzmYstr.Delete(AdresaIzmYstr.IndexOfName(IntToStr((Sender as TEdit).Tag)));
         AdresaIzmYstr.Add(IntToStr((Sender as TEdit).Tag)+'='+(Sender as TEdit).Text);
+        {ShowMessage('Сейчас в стринглисте строк: '+ IntToStr(AdresaIzmYstr.Count)+#10+#13+
+                    'Изменения произошли в строке с индексом: '+ IntToStr(AdresaIzmYstr.IndexOfName(IntToStr((Sender as TEdit).Tag))));  }
       end
     else
-      AdresaIzmYstr.Add(IntToStr((Sender as TEdit).Tag)+'='+(Sender as TEdit).Text); //Запомнили адрес устройства, где было изменение
+      begin
+        AdresaIzmYstr.Add(IntToStr((Sender as TEdit).Tag)+'='+(Sender as TEdit).Text); //Запомнили адрес устройства, где было изменение
+        //ShowMessage('Добавилась новая измененная строчечка '+s+'  и индекс у нее '+IntToStr(AdresaIzmYstr.IndexOfName(IntToStr((Sender as TEdit).Tag))));
+      end;
 end;
 
 procedure TF_Main.Btn1_ZapVremsPKClick(Sender: TObject);
@@ -304,14 +305,18 @@ var
   i: integer;
 begin
   If AdresaIzmYstr = nil
-    then ShowMessage('Вы не сделали изменений в ценах')
+    then
+      begin
+        ShowMessage('Вы не сделали изменений в ценах');
+        exit;
+      end  
     else
-        For i:=0 to AdresaIzmYstr.Count-1 do
-          begin
-            ShowMessage('Изменения произошли на устройстве с адресом: ' + AdresaIzmYstr.Names[i] + #10#13+
-                    'Измененное значение равно' + AdresaIzmYstr.ValueFromIndex[i]);
-            Paket.ZapisCenyNaOdnomUstr(StrToInt(AdresaIzmYstr.Names[i]),AdresaIzmYstr.ValueFromIndex[i]);
-          end;
+      For i:=0 to AdresaIzmYstr.Count-1 do
+        begin
+         { ShowMessage('Изменения произошли на устройстве с адресом: ' + AdresaIzmYstr.Names[i] + #10#13+
+                  'Измененное значение равно' + AdresaIzmYstr.ValueFromIndex[i]);  }
+          Paket.ZapisCenyNaOdnomUstr(StrToInt(AdresaIzmYstr.Names[i]),AdresaIzmYstr.ValueFromIndex[i]);
+        end;
   FreeAndNil(AdresaIzmYstr);
   {If Length(MyLables)>0
     then Paket.ZapisCeny
