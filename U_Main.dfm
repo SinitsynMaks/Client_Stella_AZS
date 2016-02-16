@@ -1,6 +1,6 @@
 object F_Main: TF_Main
-  Left = 1577
-  Top = 129
+  Left = 1565
+  Top = 271
   Anchors = [akTop, akBottom]
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle

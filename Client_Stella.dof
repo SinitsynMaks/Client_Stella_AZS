@@ -90,7 +90,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=D:\Программирование\Delphi7\Проги с COM_портом\Реальная прога 1.0\Output
+OutputDir=D:\Programming\Delphi7\Progi_COM_port\Client_StellaAZS\Output
 UnitOutputDir=
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -138,8 +138,9 @@ Comments=
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlOutputDirectorry]
-Count=4
-Item0=D:\Программирование\Delphi7\Проги с COM_портом\Реальная прога 1.0\Output
-Item1=E:\Программирование\Delphi7\Проги с COM_портом\Реальная прога 1.0\Output
-Item2=E:\Программирование\Программирование на Delphi7\Проги с COM_портом\Реальная прога 1.0\Output
-Item3=D:\По Вовану\Мои проги\Реальная прога 1.0\Output
+Count=5
+Item0=D:\Programming\Delphi7\Progi_COM_port\Client_StellaAZS\Output
+Item1=D:\Программирование\Delphi7\Проги с COM_портом\Реальная прога 1.0\Output
+Item2=E:\Программирование\Delphi7\Проги с COM_портом\Реальная прога 1.0\Output
+Item3=E:\Программирование\Программирование на Delphi7\Проги с COM_портом\Реальная прога 1.0\Output
+Item4=D:\По Вовану\Мои проги\Реальная прога 1.0\Output

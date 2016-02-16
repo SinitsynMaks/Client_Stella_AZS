@@ -233,8 +233,9 @@ begin
                           Text:= Paket.CenaonDevice;
                           Font.Size:=14;
                           Tag:= StrToInt(realdevice.Names[j2]);//Эдит знает за каким адресом он закреплен
-                          Hint:='Поле отображает цену на устройстве.'+#10#13+'Если необходимо сменить цену,'
-                                 +#10#13+'нужно ввести новое значение и нажать кнопку "Записать"';
+                          {Hint:='Поле отображает цену на устройстве.'+#10#13+'Если необходимо сменить цену,'
+                                 +#10#13+'нужно ввести новое значение и нажать кнопку "Записать"';    }
+                          Hint:= IntToStr(Tag);
                           ShowHint:=True;
                           OnKeyPress:=F_Main.KeyPress;
                           OnChange:= F_Main.ChangeOfEdit;
@@ -684,7 +685,7 @@ begin
   Paketik[14]:=$0D;
   Paketik[15]:=$0A;
   F_Main.ComPort1.Write(Paketik,15);
-  sleep(100);
+  sleep(50);
   F_Main.ComPort1.Read(P_vhod,15);
   If (P_vhod[9]=U_Main.inifile.ReadInteger('Для отправки на устройства','часы',8)) and (P_vhod[10]=3)
      and (P_vhod[11]=4) and (P_vhod[12]=255) and (P_vhod[2]=Paketik[2])
@@ -743,7 +744,14 @@ begin
   Paketik[14]:=$0D;
   Paketik[15]:=$0A;
   F_Main.ComPort1.Write(Paketik,15);
-  Sleep(100);
+  Sleep(50);
+  F_Main.ComPort1.Read(P_vhod,15);
+  If (P_vhod[9]=Paketik[1]) and (P_vhod[10]=2) and (P_vhod[11]=1) and (P_vhod[12]=255)
+    then
+      begin
+      end
+    else
+      ShowMessage('Устройство '+ IntToStr(Paketik[1])+' не ответило на установку цены');
 end;
 
 procedure TPaketovshik.YznatParolPultaDU;
