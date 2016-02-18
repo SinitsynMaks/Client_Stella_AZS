@@ -1,6 +1,6 @@
 object F_Nastr_Porta: TF_Nastr_Porta
-  Left = 1125
-  Top = 240
+  Left = 1523
+  Top = 756
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '#1087#1086#1088#1090#1072
@@ -49,10 +49,10 @@ object F_Nastr_Porta: TF_Nastr_Porta
     Top = 8
     Width = 113
     Height = 21
+    Style = csDropDownList
     ItemHeight = 13
     TabOrder = 0
     OnChange = ComboBox_NomerPortaChange
-    OnDropDown = ComboBox_NomerPortaDropDown
   end
   object ComComboBox1: TComComboBox
     Left = 72

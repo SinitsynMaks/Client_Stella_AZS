@@ -9,7 +9,21 @@ uses
   dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage,
   cxEdit, cxGridCustomTableView, cxGridTableView, cxGridCustomView,
   cxClasses, cxGridLevel, cxGrid, cxDropDownEdit, cxCheckBox, Gauges,
-  CPort, U_UstrSCenoy, U_NastrChasov, U_Nastr_Porta, CPortCtl, Spin;
+  CPort, U_UstrSCenoy, U_NastrChasov, U_Nastr_Porta, CPortCtl, Spin,
+  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
+  dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans,
+  dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky,
+  dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
+  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinPumpkin,
+  dxSkinSeven, dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus,
+  dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
+  dxSkinTheAsphaltWorld, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, cxNavigator;
 
 type
   TF_ServNastr = class(TForm)
@@ -46,12 +60,12 @@ type
     procedure cxGrid1TableView1CellDblClick(Sender: TcxCustomGridTableView;
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
-    procedure CmBx_VyberiPortDropDown(Sender: TObject);
+    //procedure CmBx_VyberiPortDropDown(Sender: TObject);
     procedure ComComboBox1Change(Sender: TObject);
     procedure Slegy_za_portami;
     procedure DannyeVGrid;
     procedure SpinEdit_RazrChange(Sender: TObject);
-    procedure CmBx_VyberiPortCloseUp(Sender: TObject);
+    //procedure CmBx_VyberiPortCloseUp(Sender: TObject);
     procedure cxGrid2TV1Col6PropertiesChange(Sender: TObject);
   private
     { Private declarations }
@@ -79,23 +93,23 @@ begin
   Label_Vait.Visible:=False;
   Label_Vait2.Visible:=False;
   Slegy_za_portami;
-  CmBx_VyberiPort.ItemIndex:=U_Main.inifile.ReadInteger('ComPort','Port_index',0);
-  ComComboBox1.ItemIndex:=U_Main.inifile.ReadInteger('ComPort','BaudRate_index',7);
-      If inifile.ValueExists('ComPort','Port')
-        then
-          try
-            F_Main.ComPort1.Port:=inifile.ReadString('ComPort','Port','Com1');
-            F_Main.ComPort1.Open;
-          except
-            ShowMessage('Не удалось подключиться к порту: '+ F_Main.ComPort1.Port);
-          end
-        else
-          try
-            F_Main.ComPort1.Port:=CmBx_VyberiPort.Items[CmBx_VyberiPort.ItemIndex];
-            F_Main.ComPort1.Open;
-          except
-            ShowMessage('Не удалось подключиться к порту: '+ F_Main.ComPort1.Port);
-          end;
+  CmBx_VyberiPort.ItemIndex:= U_Main.inifile.ReadInteger('ComPort','Port_index',0);//Если в ини файле такого значения нет, индекс=0
+  ComComboBox1.ItemIndex:= U_Main.inifile.ReadInteger('ComPort','BaudRate_index',7);
+    If inifile.ValueExists('ComPort','Port')
+      then
+        try
+          F_Main.ComPort1.Port:=inifile.ReadString('ComPort','Port','Com1');
+          F_Main.ComPort1.Open;
+        except
+          ShowMessage('Не удалось подключиться к порту: '+ F_Main.ComPort1.Port);
+        end
+      else
+        try
+          F_Main.ComPort1.Port:=CmBx_VyberiPort.Items[CmBx_VyberiPort.ItemIndex];
+          F_Main.ComPort1.Open;
+        except
+          ShowMessage('Не удалось подключиться к порту: '+ F_Main.ComPort1.Port);
+        end;
 end;
 
 procedure TF_ServNastr.Btn_OprosYstrClick(Sender: TObject);
@@ -279,10 +293,10 @@ begin
           MyForms[row].Show;
 end;
 
-procedure TF_ServNastr.CmBx_VyberiPortDropDown(Sender: TObject);
+{procedure TF_ServNastr.CmBx_VyberiPortDropDown(Sender: TObject);
 begin
-  Slegy_za_portami;
-end;
+//  Slegy_za_portami;
+end;  }
 
 procedure TF_ServNastr.ComComboBox1Change(Sender: TObject);
 begin
@@ -319,7 +333,7 @@ begin
   U_Main.inifile.WriteInteger('Табло','razr',razr);
 end;
 
-procedure TF_ServNastr.CmBx_VyberiPortCloseUp(Sender: TObject);
+{procedure TF_ServNastr.CmBx_VyberiPortCloseUp(Sender: TObject);
 begin
   If inifile.ValueExists('ComPort','Port')
     then
@@ -331,12 +345,12 @@ begin
       end
     else
       try
-        F_Main.ComPort1.Port:=CmBx_VyberiPort.Items[CmBx_VyberiPort.ItemIndex];
+        F_Main.ComPort1.Port:= CmBx_VyberiPort.Items[CmBx_VyberiPort.ItemIndex];
         F_Main.ComPort1.Open;
       except
         ShowMessage('Не удалось подключиться к порту: '+ F_Main.ComPort1.Port);
       end;
-end;
+end;  }
 
 procedure TF_ServNastr.cxGrid2TV1Col6PropertiesChange(Sender: TObject);
 begin

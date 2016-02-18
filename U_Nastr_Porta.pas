@@ -18,7 +18,7 @@ type
     procedure ComComboBox1Change(Sender: TObject);
     procedure Btn_SohrClick(Sender: TObject);
     procedure Slegy_za_portami;
-    procedure ComboBox_NomerPortaDropDown(Sender: TObject);
+    //procedure ComboBox_NomerPortaDropDown(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -54,10 +54,10 @@ begin
   Btn_Sohr.Enabled:=True;
 end;
 
-procedure TF_Nastr_Porta.ComboBox_NomerPortaDropDown(Sender: TObject);
+{procedure TF_Nastr_Porta.ComboBox_NomerPortaDropDown(Sender: TObject);
 begin
   Slegy_za_portami;
-end;
+end;    }
 
 procedure TF_Nastr_Porta.ComComboBox1Change(Sender: TObject);
 begin

@@ -1,6 +1,6 @@
 object F_pass1: TF_pass1
-  Left = 662
-  Top = 351
+  Left = 819
+  Top = 487
   Width = 258
   Height = 139
   Caption = #1042#1074#1077#1076#1080' '#1087#1072#1088#1086#1083#1100

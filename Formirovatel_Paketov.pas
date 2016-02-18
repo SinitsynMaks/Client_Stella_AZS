@@ -22,7 +22,7 @@ Type
   Public
     procedure ZaprosVrem; //Запрос значения времени у часов, оно же устройство с тестовым адресом 5 (1-й байт)) командой 12 (12-й байт)
     procedure YstNovZnachVrem; // Пакет на часы (устройство с адресом 5 (1-й байт)) для установки нового значения времени командой 2 (12-й) байт
-    procedure ZaprosCeny(i:integer); {Запрос значения цены у всех устройств в сети поочереди}
+    procedure ZaprosCeny(i:integer); // Запрос цены у устройства по адресу
     procedure ZapisCeny;// Процедура отправки пакетов на устройство для записи на них цен, устанавливаемых с компа
     procedure IzmAdrNa(number:integer); //Метод замены адреса одного устройства на другой путем отправки определенного пакета
     procedure ParolPultaDu;//Метод записи пароля пульта ду определенным пакетом
@@ -32,7 +32,7 @@ Type
     procedure ZapisCenyNaOdnomUstr(adr: integer; cena: string);
     procedure YznatParolPultaDU;
     procedure VremjaModalnogoOkna(sender: TObject); //событие для таймера работы модального окна
-    procedure OprosYstroistv;// Обработчик нажатия кнопки "считать" и "найти устройство"
+    procedure OprosYstroistv;// Опрос всех устройств в цикле поочереди
     procedure DeleteMyEdits; //Очищает поле с лейблами и эдитами при новом сканировании
 
     property gauge: TGauge read Fgauge write Fgauge;
@@ -785,7 +785,7 @@ begin
   Paketik[14]:=$0D;
   Paketik[15]:=$0A;
   F_Main.ComPort1.Write(Paketik,15);
-  Sleep(50);
+  Sleep(100);
   p:= F_Main.ComPort1.InputCount div 15;//Количество пакетов, накопившихся в буфере
   F_Main.ComPort1.Read(P_vhod,15);
   If p>0     //Вдруг перед пакетом от устройства вклинился пакет на авторизацию или наоборот пристроился сзади
@@ -796,9 +796,9 @@ begin
         If (P_vhod[9]=1) and (P_vhod[10]=2) and (P_vhod[11]=16) and (P_vhod[12]=255) //Если пакет с 1-го устройства
           then
             begin
-              For k:=2 to 5 do
-                s:=s+IntToStr(P_vhod[k]);
+              For k:=2 to 5 do s:=s+IntToStr(P_vhod[k]);
               F_Main.Label_ParolPultaDU.Caption:= 'Текущий пароль пульта ДУ: '+ s;
+              U_Main.inifile.WriteString('Пароль пульта ДУ','Pass',s);
             end;
         If (P_vhod[9]=1) and (P_vhod[10]=2) and (P_vhod[12]=20)//Если пришел пакет на авторизацию и "засыпание" программы
           then

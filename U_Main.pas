@@ -85,7 +85,7 @@ implementation
 
 procedure TF_Main.FormCreate(Sender: TObject);
 begin
-  Application.HintHidePause := 10000; //Время отображения подсказок - 5 сек 
+  Application.HintHidePause := 10000; //Время отображения подсказок - 10 сек 
   Timer1.Enabled:= false;
   Panel1.Left:=Round((F_Main.ClientWidth-Panel1.Width)/2);
   Label_ParolPultaDU.Left:= 10;

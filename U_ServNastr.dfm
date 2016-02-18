@@ -1,6 +1,6 @@
 object F_ServNastr: TF_ServNastr
-  Left = 1492
-  Top = 229
+  Left = 1485
+  Top = 215
   Width = 417
   Height = 647
   Caption = #1057#1077#1088#1074#1080#1089#1085#1099#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1080
@@ -128,12 +128,10 @@ object F_ServNastr: TF_ServNastr
       Top = 48
       Width = 145
       Height = 24
+      Style = csDropDownList
       ItemHeight = 16
       TabOrder = 2
-      Text = #1042#1099#1073#1077#1088#1080' '#1087#1086#1088#1090
       OnChange = CmBx_VyberiPortChange
-      OnCloseUp = CmBx_VyberiPortCloseUp
-      OnDropDown = CmBx_VyberiPortDropDown
     end
     object ComComboBox1: TComComboBox
       Left = 16
