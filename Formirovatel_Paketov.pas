@@ -701,7 +701,7 @@ var
   k,x:integer;
   s,s1: string;
 begin
-  F_Main.Memo1.Lines.Clear;
+  //F_Main.Memo1.Lines.Clear;
   s1:='';
   x:=1;
   Paketik[1]:= adr;
@@ -733,11 +733,12 @@ begin
     else
       for k:=1 to 4 do
         Paketik[k+1]:=StrToInt(s1[k]);
-  For k:= 6 to 7 do Paketik[k]:=255;//Оставшиеся байты данных в пакете заполняются значениями FF (255)
+  Paketik[6]:=255; //Оставшиеся байты данных в пакете заполняются значениями FF (255)
+  Paketik[7]:=255; //Оставшиеся байты данных в пакете заполняются значениями FF (255
   Paketik[9]:=0;//Адрес компа
   Paketik[10]:=1; //Тип устройства - комп
   Paketik[11]:=0;//С компа эта команда пустая
-  Paketik[12]:=1; //Команда на запись цены (01)
+  Paketik[12]:=1; // Ключевая команда на запись цены (01)
   x:=0;
   for k:=1 to 12 do x:=x+(Paketik[k] xor $FF);
   Paketik[13]:=x;

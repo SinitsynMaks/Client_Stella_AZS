@@ -310,18 +310,11 @@ begin
       begin
         ShowMessage('Вы не сделали изменений в ценах');
         exit;
-      end  
+      end
     else
       For i:=0 to AdresaIzmYstr.Count-1 do
-        begin
-         { ShowMessage('Изменения произошли на устройстве с адресом: ' + AdresaIzmYstr.Names[i] + #10#13+
-                  'Измененное значение равно' + AdresaIzmYstr.ValueFromIndex[i]);  }
-          Paket.ZapisCenyNaOdnomUstr(StrToInt(AdresaIzmYstr.Names[i]),AdresaIzmYstr.ValueFromIndex[i]);
-        end;
+        Paket.ZapisCenyNaOdnomUstr(StrToInt(AdresaIzmYstr.Names[i]),AdresaIzmYstr.ValueFromIndex[i]);
   FreeAndNil(AdresaIzmYstr);
-  {If Length(MyLables)>0
-    then Paket.ZapisCeny
-    else ShowMessage('Нет данных для записи на устройства');  }
 end;
 
 procedure TF_Main.Action_SohranenieCenExecute(Sender: TObject);
