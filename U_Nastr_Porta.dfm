@@ -1,6 +1,6 @@
 object F_Nastr_Porta: TF_Nastr_Porta
-  Left = 1523
-  Top = 756
+  Left = 1610
+  Top = 809
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080' '#1087#1086#1088#1090#1072

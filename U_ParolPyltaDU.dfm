@@ -1,6 +1,6 @@
 object F_ParolDU: TF_ParolDU
-  Left = 1670
-  Top = 784
+  Left = 795
+  Top = 381
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1055#1072#1088#1086#1083#1100' '#1087#1091#1083#1100#1090#1072' '#1044#1059

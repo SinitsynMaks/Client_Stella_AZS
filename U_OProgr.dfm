@@ -1,6 +1,6 @@
 object F_OProgramme: TF_OProgramme
-  Left = 1545
-  Top = 796
+  Left = 767
+  Top = 177
   Width = 302
   Height = 166
   Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077

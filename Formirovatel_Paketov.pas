@@ -141,7 +141,8 @@ begin
             then     //Обрабатываем все пакеты поочереди
               Repeat
                 F_Main.ComPort1.Read(P_vhod,15);
-                If (P_vhod[9] = Paketik[1]) and (P_vhod[10]=3) and (P_vhod[11]=15) and (P_vhod[12]=255) //Если пришел пакет-ответ с часов
+                //Если пришел пакет-ответ с часов
+                If (P_vhod[9] = Paketik[1]) and (P_vhod[10]=3) and (P_vhod[11]=15) and (P_vhod[12]=255)
                   then
                     begin
                       iniFile.WriteString('Для приема от устройств',IntToStr(i),'часы');
@@ -150,14 +151,16 @@ begin
                       FlagOprosa:=True;
                       gauge.MaxValue:=gauge.MaxValue-(3-j2);
                     end;
-                If (P_vhod[9] = Paketik[1]) and (P_vhod[10]=2) and (P_vhod[11]=15) and (P_vhod[12]=255)//Если пришел пакет-ответ с панели для цены
+                //Если пришел пакет-ответ с панели для цены
+                If (P_vhod[9] = Paketik[1]) and (P_vhod[10]=2) and (P_vhod[11]=15) and (P_vhod[12]=255)
                   then
                     begin
                       realdevice.Add(IntToStr(i)+'=панель с ценой');//Занесли в список реальний адрес устройства в сети
                       FlagOprosa:=True;
                       gauge.MaxValue:=gauge.MaxValue-(3-j2);
                     end;
-                If (P_vhod[9]=1) and (P_vhod[10]=2) and (P_vhod[12]=20)//Если пришел пакет на авторизацию и "засыпание" программы
+                //Если пришел пакет на авторизацию и "засыпание" программы
+                If (P_vhod[9]=1) and (P_vhod[10]=2) and (P_vhod[12]=20)
                   then
                     begin
                       FWait:= TFWait.Create(F_Main);
@@ -240,7 +243,7 @@ begin
                           OnKeyPress:=F_Main.KeyPress;
                           OnChange:= F_Main.ChangeOfEdit;
                         end;
-                      for k:=1 to 15 do P_vhod[k]:=0;  
+                      for k:=1 to 15 do P_vhod[k]:=0;
                     end;
                 If (P_vhod[9]=1) and (P_vhod[10]=2) and (P_vhod[12]=20)//Если пришел пакет на авторизацию и "засыпание" программы
                   then
@@ -249,8 +252,8 @@ begin
                       FWait.ShowModal;
                     end;
                   until (F_Main.ComPort1.InputCount div 15)=0
-            else
-              ShowMessage('Нет данных от устройства: '+IntToStr(Paketik[1]));
+          else
+            ShowMessage('Нет данных от устройства: '+IntToStr(Paketik[1]));
         end;
   If not F_Main.Btn1_ZapVremsPK.Enabled
     then
@@ -792,7 +795,7 @@ begin
     then     //Обрабатываем их все поочереди
       Repeat
         F_Main.ComPort1.Read(P_vhod,15);
-        p:=p-1;
+        p:= p-1;
         If (P_vhod[9]=1) and (P_vhod[10]=2) and (P_vhod[11]=16) and (P_vhod[12]=255) //Если пакет с 1-го устройства
           then
             begin
